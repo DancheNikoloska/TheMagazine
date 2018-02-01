@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Admin routes
+ */
+
+Route::prefix('admin')->group(function () {
+    Route::get('dashboard', function () {
+        dd(get_class(), 'dashboard');
+    });
 });
+
+/**
+ * User routes
+ */
+
+Route::resource('/', 'PostsController');
+
